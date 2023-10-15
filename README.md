@@ -432,7 +432,7 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
     └── (empty)
     ```
 
-- `npm run npm start:dev`で起動成功！！→ 結論、 @nestjs/cli が環境でも起動できる！！
+- `npm run npm start:dev`で起動成功！！→ 結論、 @nestjs/cli がない環境でも起動できる！！
 
     ```sh
     cd ~/restapi-todo-nestjs-udemy/api-lesson-npm/
@@ -448,3 +448,49 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
     curl http://10.1.1.201:3000
     Hello World!
     ```
+
+
+## NestJs のプロジェクトをGitHubの初回push する手順
+
+- NestJs のプロジェクトは自動で、`.git` ファイルと`README.md`ファイルを作成している
+- このため、NestJs のプロジェクトをGitpubへ初回Pushする場合以下の手順が必要
+1. GitHUbにリポジトリを、`README`無しでリポジトリを作成する
+
+    - GitHubのリポジトリ名は、NestJsのプロジェクト名と同じとした方がよいと思われる
+
+    - ここでは、リポジトリ名（を含むURL）を以下とした
+
+    https://github.com/moriyamaES/api-lessen-udemy'
+
+2. ローカルのgitリポジトリに移動し、以下のコマンドを実行する
+
+    ```git
+    git add .
+    ```
+    
+    ```git
+    git commit -m "create repository"
+    ```
+
+    ```sh
+    [kazuhiro@localhost ~/api-lesson-udemy (master)]
+    $ git remote add origin https://github.com/moriyamaES/api-lessen-udemy
+    ```
+    
+    ```
+    git push --set-upstream origin master
+    Enumerating objects: 23, done.
+    Counting objects: 100% (23/23), done.
+    Delta compression using up to 3 threads
+    Compressing objects: 100% (23/23), done.
+    Writing objects: 100% (23/23), 95.76 KiB | 4.79 MiB/s, done.
+    Total 23 (delta 2), reused 0 (delta 0), pack-reused 0
+    remote: Resolving deltas: 100% (2/2), done.
+    To https://github.com/moriyamaES/api-lessen-udemy
+    * [new branch]      master -> master
+    branch 'master' set up to track 'origin/master'.
+    ```
+
+    - NextJsがローカルのブランチ名がデフォルトで`master`となっているため、`push`する前に、ローカルのブランチ名を`main`に変えた方がよいと思われる。
+
+    - NextJsのプロジェクトは、`.gitignore`でソースファイルのみアップするように成ってる模様
