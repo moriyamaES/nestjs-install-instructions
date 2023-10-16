@@ -450,7 +450,7 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
     ```
 
 
-## NestJs のプロジェクトをGitHubの初回push する手順
+# NestJs のプロジェクトをGitHubの初回push する手順（1回目）
 
 - NestJs のプロジェクトは自動で、`.git` ファイルと`README.md`ファイルを作成している
 - このため、NestJs のプロジェクトをGitpubへ初回Pushする場合以下の手順が必要
@@ -477,7 +477,7 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
     $ git remote add origin https://github.com/moriyamaES/api-lessen-udemy
     ```
     
-    ```
+    ```sh
     git push --set-upstream origin master
     Enumerating objects: 23, done.
     Counting objects: 100% (23/23), done.
@@ -494,3 +494,276 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
     - NextJsがローカルのブランチ名がデフォルトで`master`となっているため、`push`する前に、ローカルのブランチ名を`main`に変えた方がよいと思われる。
 
     - NextJsのプロジェクトは、`.gitignore`でソースファイルのみアップするように成ってる模様
+
+# NestJs のプロジェクトをGitHubの初回push する手順（２回目）
+
+- １回目の手順を修正しながら、`api-lesson-npm-udemy`のリーモートリポジトリをGitHub上に作成する。
+
+1. `~/api-lesson-npm-udemy`をローカルでコッミトする。
+
+    ```sh
+    cd ~/api-lesson-npm-udemy/
+    ```
+
+    ```sh
+    git add .
+    ```
+
+    ```sh
+    git commit -m "リポジトリの作成"
+    ```
+
+1. 現在のローカルブランチのカレントを確認
+
+    ```sh
+    git branch 
+    * master   
+    ```
+
+1. ルートのブランチ名を`master`から`main`に変更
+
+    ```sh
+    git branch -m master main
+    ```
+
+    ```sh
+    git branch 
+    * main
+    ```
+
+1. リモートリポジトリを
+
+- NestJs のプロジェクトは自動で、`.git` ファイルと`README.md`ファイルを作成している
+- このため、NestJs のプロジェクトをGitpubへ初回Pushする場合以下の手順が必要
+
+1. GitHUbにリポジトリを、`README`無しでリポジトリを作成する
+
+    - GitHubのリポジトリ名は、NestJsのプロジェクト名と同じとした方がよいと思われる
+
+    - ここでは、リポジトリ名（を含むURL）を以下とした
+
+    https://github.com/moriyamaES/api-lessen-npm-udemy.git
+
+1. リモートリポジトリを名前を`origin`で作成
+
+    ```sh
+    git remote add origin https://github.com/moriyamaES/api-lessen-npm-udemy.git
+    ```
+
+    ```sh
+    git push --set-upstream origin main
+    Enumerating objects: 20, done.
+    Counting objects: 100% (20/20), done.
+    Delta compression using up to 3 threads
+    Compressing objects: 100% (20/20), done.
+    Writing objects: 100% (20/20), 82.70 KiB | 3.06 MiB/s, done.
+    Total 20 (delta 0), reused 0 (delta 0), pack-reused 0
+    To https://github.com/moriyamaES/api-lessen-npm-udemy.git
+    * [new branch]      main -> main
+    branch 'main' set up to track 'origin/main'.
+    ```
+
+git log --graph --oneline 
+* cb21c78 (HEAD -> main, origin/main) リポジトリの作成
+
+- `git log`を確認
+
+    - `origin/HEAD`が無い 
+
+    ```sh
+    git log --graph --oneline 
+    * cb21c78 (HEAD -> main, origin/main) リポジトリの作成 
+    ```
+
+- `push`してみる
+
+    ```sh
+    `git push`
+    ``````
+    ```sh
+    git log --graph --oneline --all
+    * 22024ea (HEAD -> main, origin/main) READMEを修正
+    * cb21c78 リポジトリの作成
+    ```    
+
+    - `origin/HEAD`が無い状態が解消されない
+
+
+- 以下のコマンドを実行し、`origin/HEAD`を作成 
+
+    ```sh
+    git remote set-head origin main
+    ```
+
+    - `origin/HEAD`が作成された 
+    
+    ```sh
+    git log --graph --oneline --all
+    * 22024ea (HEAD -> main, origin/main, origin/HEAD) READMEを修正
+    * cb21c78 リポジトリの作成
+    ```
+
+# "api-lesson-npm-udemy" にて、"Hello World" を "こんちわ"に変更した後、GitHubにpush後、ローカールでcloneしたソースで "api-lesson-npm-udemy"をビルドし、"こんちわ"が表示されることかを検証する
+
+## 環境構築
+
+1. `@nestjs@cli`をインストール
+
+    ```sh
+    sudo npm i -g @nestjs/cli
+    [sudo] kazuhiro のパスワード:
+
+    added 263 packages in 24s
+
+    44 packages are looking for funding
+    run `npm fund` for details
+    ```
+
+1. インストール済の確認
+
+    ```sh
+    npm ls -g
+    /usr/local/lib
+    └── @nestjs/cli@10.1.18
+    ```
+
+## 検証の実施
+
+1. ソースファイルを変更
+
+    ```diff
+    git diff ./src/app.service.ts
+    diff --git a/src/app.service.ts b/src/app.service.ts
+    index 927d7cc..ddd4ce3 100644
+    --- a/src/app.service.ts
+    +++ b/src/app.service.ts
+    @@ -3,6 +3,6 @@ import { Injectable } from '@nestjs/common';
+    @Injectable()
+    export class AppService {
+    getHello(): string {
+    -    return 'Hello World!';
+    +    return 'こんちわ';
+      }
+    }    
+    ```
+
+1. APサーバを起動し、"こんちわ"の表示を確認
+
+    ```sh
+     cd ~/api-lesson-npm-udemy/
+    ```
+
+    ```sh
+    npm run start:dev
+    ```
+
+1. ローカルのソースをGitHubにpush
+
+    - 別ターミナルで以下のコマンドを実行
+
+    ```sh
+    curl http://10.1.1.201:3000
+    こんちわ
+    ```
+
+    - サーバを停止
+
+1. 修正したソースをGitHubにプッシュ
+
+    ```sh
+     git commit -am "service.tsを修正"
+    ```
+
+    ```sh
+    git push
+    ```
+
+    ```sh
+    * 3a17c19 (HEAD -> main, origin/main, origin/HEAD) service.tsを修正
+    * 22024ea READMEを修正
+    * cb21c78 リポジトリの作成
+    ```
+    
+1. ローカルのリポジトリフォルダを削除
+
+    ```sh
+    cd ~
+    ```
+
+    ```sh
+    m -rf api-lesson-npm-udemy/
+    ```
+
+1. ローカルにリモートリポジトリを`clone`
+
+    ```sh
+    cd ~
+    ```
+
+    ```sh
+    git clone https://github.com/moriyamaES/api-lessen-npm-udemy.git
+    Cloning into 'api-lessen-npm-udemy'...
+    remote: Enumerating objects: 27, done.
+    remote: Counting objects: 100% (27/27), done.
+    remote: Compressing objects: 100% (23/23), done.
+    remote: Total 27 (delta 5), reused 26 (delta 4), pack-reused 0
+    Receiving objects: 100% (27/27), 83.25 KiB | 936.00 KiB/s, done.
+    Resolving deltas: 100% (5/5), done.
+    ```
+
+1. ローカルのリポジトリにて、プロジェクトをビルド
+
+    ```sh
+     cd ~/api-lessen-npm-udemy/
+    ```
+
+    ```sh
+    npm run start:dev
+    ```    
+
+
+    
+<del>    ```sh
+    cd ~
+    ```
+
+    ```sh
+    nest new api-lesson-npm -p npm
+    ⚡  We will scaffold your app in a few seconds..
+
+    CREATE api-lesson-npm/.eslintrc.js (663 bytes)
+    CREATE api-lesson-npm/.prettierrc (51 bytes)
+    CREATE api-lesson-npm/README.md (3340 bytes)
+    CREATE api-lesson-npm/nest-cli.json (171 bytes)
+    CREATE api-lesson-npm/package.json (1955 bytes)
+    CREATE api-lesson-npm/tsconfig.build.json (97 bytes)
+    CREATE api-lesson-npm/tsconfig.json (546 bytes)
+    CREATE api-lesson-npm/src/app.controller.spec.ts (617 bytes)
+    CREATE api-lesson-npm/src/app.controller.ts (274 bytes)
+    CREATE api-lesson-npm/src/app.module.ts (249 bytes)
+    CREATE api-lesson-npm/src/app.service.ts (142 bytes)
+    CREATE api-lesson-npm/src/main.ts (208 bytes)
+    CREATE api-lesson-npm/test/app.e2e-spec.ts (630 bytes)
+    CREATE api-lesson-npm/test/jest-e2e.json (183 bytes)
+
+    ✔ Installation in progress... ☕
+
+    🚀  Successfully created project api-lesson-npm
+    👉  Get started with the following commands:
+
+    $ cd api-lesson-npm
+    $ npm run start
+
+                                                
+                                Thanks for installing Nest 🙏
+                        Please consider donating to our open collective
+                                to help us maintain this package.
+                                                
+                                                
+                    🍷  Donate: https://opencollective.com/nest
+                                                
+
+    ```
+</del>
+
+1. APサーバを起動し、"こんちわ"の表示を確認
