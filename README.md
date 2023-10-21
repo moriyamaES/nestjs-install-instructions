@@ -118,26 +118,6 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
     └── @nestjs/cli@10.1.18
     ```
 
-<del>
-- `npx npm new --help`コマンドを実行したところ、`npm@10.2.1`が必要とされたため、インストール
-
-1. `npm@10.2.1`をインストール
-
-    ```sh
-    npx npm new --help
-    ```
-    - 結果
-    ```sh
-    Need to install the following packages:
-    npm@10.2.1
-    Ok to proceed? (y) y
-    Unknown command: "new"
-
-    To see a list of supported npm commands, run:
-    npm help
-    ```
-</del>
-
 ## NextJS の環境構築の条件
 
 - `npm`を使用。`yarn`は使用しない。
