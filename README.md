@@ -68,6 +68,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     node -v
+    ```
+    - 結果
+    ```sh
     v20.5.1
     ```
 
@@ -75,6 +78,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm -v
+    ```
+    - 結果
+    ```sh
     9.8.0
     ```
 
@@ -84,6 +90,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npx -v
+    ```
+    - 結果
+    ```sh
     9.8.0
     ```
 
@@ -91,6 +100,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     sudo npm i -g @nestjs/cli
+    ```
+    - 結果
+    ```sh
     45 packages are looking for funding
     run `npm fund` for details
     ```
@@ -99,6 +111,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm ls -g
+    ```
+    - 結果
+    ```sh
     /usr/local/lib
     └── @nestjs/cli@10.1.18
     ```
@@ -110,6 +125,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npx npm new --help
+    ```
+    - 結果
+    ```sh
     Need to install the following packages:
     npm@10.2.1
     Ok to proceed? (y) y
@@ -141,6 +159,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     nest new -help
+    ```
+    - 結果
+    ```sh
     Usage: nest new|n [options] [name]
 
     Generate Nest application.
@@ -169,6 +190,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     nest new nestjs-samle-01 -p npm --strict
+    ```
+    - 結果
+    ```sh
     ⚡  We will scaffold your app in a few seconds..
 
     CREATE nestjs-samle-01/.eslintrc.js (663 bytes)
@@ -208,6 +232,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     ll ~/nestjs-samle-01/
+    ```
+    - 結果
+    ```sh
     合計 352
     -rw-rw-r--   1 kazuhiro kazuhiro   3340 10月 21 15:59 README.md
     -rw-rw-r--   1 kazuhiro kazuhiro    171 10月 21 15:59 nest-cli.json
@@ -232,6 +259,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm --help
+    ```
+    - 結果
+    ```sh
     npm <command>
 
     Usage:
@@ -272,6 +302,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     $ cat ~/nestjs-samle-01/package.json 
+    ```
+    - 結果
+    ```sh
     {
     "name": "nestjs-samle-01",
     "version": "0.0.1",
@@ -353,6 +386,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm run build
+    ```
+    - 結果
+    ```sh
     > nestjs-samle-01@0.0.1 build
     > nest build
     ```
@@ -363,6 +399,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     ll ~/nestjs-samle-01/
+    ```
+    - 結果
+    ```sh
     合計 356
     -rw-rw-r--   1 kazuhiro kazuhiro   3340 10月 21 15:59 README.md
     drwxrwxr-x   2 kazuhiro kazuhiro   4096 10月 21 16:39 dist
@@ -381,6 +420,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm run start
+     ```
+    - 結果
+    ```sh
     > nestjs-samle-01@0.0.1 start
     > nest start
 
@@ -395,6 +437,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     curl http://10.1.1.201:3000
+    ```
+    - 結果
+    ```sh
     Hello World!
     ```
 
@@ -402,6 +447,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm run build
+    ```
+    - 結果
+    ```sh
     > nestjs-samle-01@0.0.1 build
     > nest build
     ```
@@ -412,6 +460,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
      cat src/app.service.ts 
+    ```
+    - 結果
+    ```sh
     import { Injectable } from '@nestjs/common';
 
     @Injectable()
@@ -426,6 +477,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm run build
+    ```
+    - 結果
+    ```sh
     > nestjs-samle-01@0.0.1 build
     > nest build
     ```
@@ -441,7 +495,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm run build
-    
+    ```
+    - 結果
+    ```sh    
     > nestjs-samle-01@0.0.2 build
     > nest build
     ```
@@ -470,6 +526,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     git branch 
+    ```
+    - 結果
+    ```sh
     * master
     ```
 
@@ -479,6 +538,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     git branch 
+    ```
+    - 結果
+    ```sh
     * main
     ```
 
@@ -498,6 +560,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     git push --set-upstream origin main
+    ```
+    - 結果
+    ```sh
     Enumerating objects: 20, done.
     Counting objects: 100% (20/20), done.
     Delta compression using up to 3 threads
@@ -520,6 +585,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     git log --graph --oneline --all
+    ```
+    - 結果
+    ```sh
     bb89d78 (HEAD -> main, origin/main, origin/HEAD) リポジトリの作成
     ````
 
@@ -538,6 +606,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```
     git clone https://github.com/moriyamaES/nestjs-samle-01.git
+    ```
+    - 結果
+    ```sh
     Cloning into 'nestjs-samle-01'...
     remote: Enumerating objects: 20, done.
     remote: Counting objects: 100% (20/20), done.
@@ -550,6 +621,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     ll nestjs-samle-01
+    ```
+    - 結果
+    ```sh
     -rw-rw-r-- 1 kazuhiro kazuhiro   3340 10月 21 18:08 README.md
     -rw-rw-r-- 1 kazuhiro kazuhiro    171 10月 21 18:08 nest-cli.json
     -rw-rw-r-- 1 kazuhiro kazuhiro 316872 10月 21 18:08 package-lock.json
@@ -572,6 +646,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm run build
+    ```
+    - 結果
+    ```sh
 
     > nestjs-samle-01@0.0.2 build
     > nest build
@@ -601,6 +678,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm install
+    ```
+    - 結果
+    ```sh
     
     added 700 packages, and audited 701 packages in 14s
 
@@ -614,6 +694,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm run build
+    ```
+    - 結果
+    ```sh
 
     > nestjs-samle-01@0.0.2 build
     > nest build
@@ -623,6 +706,9 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     npm run start
+    ```
+    - 結果
+    ```sh
 
     > nestjs-samle-01@0.0.2 start
     > nest start
@@ -638,8 +724,13 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
 
     ```sh
     curl http://10.1.1.201:3000
+    ```
+    - 結果
+    ```sh
     こんにちわ
     ````
+
+- 以上
 
 <del>
 ## NextJS の環境構築
