@@ -247,14 +247,6 @@ NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
     -rw-rw-r--   1 kazuhiro kazuhiro    541 10月 21 15:59 tsconfig.json
     ```
 
-- プロジェクトをビルドする
-
-    - `nest`コマンドのヘルプを確認
-
-    ```sh
-    nest --
-
-
 - `npm`のヘルプを確認
 
     ```sh
