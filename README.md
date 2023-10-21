@@ -1,5 +1,5 @@
-# restapi-todo-nestjs-udemy
-NestJS + Next.js によるフルスタックWeb開発（udemy）（学習用）
+# nestjs-install-instructions
+NestJSのインストール手順
 
 - 参考サイト
 
