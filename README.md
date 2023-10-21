@@ -1389,6 +1389,6 @@ git log --graph --oneline
     ```
 </del>
 
+<del>
 1. APサーバを起動し、"こんちわ"の表示を確認
-
 </del>
