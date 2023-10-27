@@ -645,7 +645,7 @@ NestJSのインストール手順
     Found 4 error(s).
     ```
 
-1. `nom`でモジュールをインストールする
+1. `npm`でモジュールをインストールする
 
 
     ```sh
@@ -701,6 +701,155 @@ NestJSのインストール手順
     ```sh
     こんにちわ
     ````
+
+## @nestJS/cliをグローバルインストール使用せずに、NestJSのプロジェクトを起動できるかを検証　→  @nestJS/cliのグローバルインストールは必要ないことを確認
+
+1. `@nestjs/cli`をアンインストールする
+
+    ```sh
+    sudo npm un -g @nestjs/cli
+    [sudo] kazuhiro のパスワード:
+
+    removed 264 packages in 2s
+    ```
+    ```sh
+     npm list -g
+    /usr/local/lib
+    └── (empty)
+    ```
+
+1. ローカルの`git`リポジトリを削除する
+
+    ```sh
+    cd ~/
+    ```
+
+    ```sh
+    ll  | grep  nestjs-samle-01
+    drwxrwxr-x   7 kazuhiro kazuhiro      4096 10月 21 18:23 nestjs-samle-01
+    ```
+
+    ```sh
+    sudo rm -rf nestjs-samle-01/
+    ```
+
+    ```sh
+    ll  | grep  nestjs-samle-01 | wc -l
+    0
+    ```
+
+1. GitHubからプロジェクトのソースを`clone`する
+
+
+    ```sh
+    git clone https://github.com/moriyamaES/nestjs-samle-01.git
+    Cloning into 'nestjs-samle-01'...
+    remote: Enumerating objects: 20, done.
+    remote: Counting objects: 100% (20/20), done.
+    remote: Compressing objects: 100% (20/20), done.
+    remote: Total 20 (delta 0), reused 20 (delta 0), pack-reused 0
+    Receiving objects: 100% (20/20), 83.30 KiB | 4.38 MiB/s, done.
+    ```
+
+1. `clone`の結果を確認する
+
+    ```sh
+    ll nestjs-samle-01
+    合計 332
+    -rw-rw-r-- 1 kazuhiro kazuhiro   3340 10月 27 21:52 README.md
+    -rw-rw-r-- 1 kazuhiro kazuhiro    171 10月 27 21:52 nest-cli.json
+    -rw-rw-r-- 1 kazuhiro kazuhiro 316872 10月 27 21:52 package-lock.json
+    -rw-rw-r-- 1 kazuhiro kazuhiro   1955 10月 27 21:52 package.json
+    drwxrwxr-x 2 kazuhiro kazuhiro    119 10月 27 21:52 src
+    drwxrwxr-x 2 kazuhiro kazuhiro     50 10月 27 21:52 test
+    -rw-rw-r-- 1 kazuhiro kazuhiro     97 10月 27 21:52 tsconfig.build.json
+    -rw-rw-r-- 1 kazuhiro kazuhiro    541 10月 27 21:52 tsconfig.json    ```
+    ```
+
+1. `clone`したプロジェクトのフォルダに移動
+
+    ```sh
+    cd nestjs-samle-01
+    ```
+
+1. `npm`でモジュールをインストールする
+
+    ```sh
+    npm install
+    
+    added 700 packages, and audited 701 packages in 12s
+
+    119 packages are looking for funding
+    run `npm fund` for details
+
+    found 0 vulnerabilities
+    ```
+
+1. `install`の結果を確認する
+
+    ```sh
+    ll
+    合計 352
+    -rw-rw-r--   1 kazuhiro kazuhiro   3340 10月 27 21:52 README.md
+    -rw-rw-r--   1 kazuhiro kazuhiro    171 10月 27 21:52 nest-cli.json
+    drwxrwxr-x 478 kazuhiro kazuhiro  16384 10月 27 21:53 node_modules
+    -rw-rw-r--   1 kazuhiro kazuhiro 316872 10月 27 21:53 package-lock.json
+    -rw-rw-r--   1 kazuhiro kazuhiro   1955 10月 27 21:52 package.json
+    drwxrwxr-x   2 kazuhiro kazuhiro    119 10月 27 21:52 src
+    drwxrwxr-x   2 kazuhiro kazuhiro     50 10月 27 21:52 test
+    -rw-rw-r--   1 kazuhiro kazuhiro     97 10月 27 21:52 tsconfig.build.json
+    -rw-rw-r--   1 kazuhiro kazuhiro    541 10月 27 21:52 tsconfig.json
+    ```
+
+1. プロジェクトをビルドする（成功！！）
+
+    ```sh
+    npm run build
+
+    > nestjs-samle-01@0.0.2 build
+    > nest build
+    ```
+
+1. `build`の結果を確認する
+
+    ```sh
+    ll
+    合計 356
+    -rw-rw-r--   1 kazuhiro kazuhiro   3340 10月 27 21:52 README.md
+    drwxrwxr-x   2 kazuhiro kazuhiro   4096 10月 27 21:56 dist
+    -rw-rw-r--   1 kazuhiro kazuhiro    171 10月 27 21:52 nest-cli.json
+    drwxrwxr-x 478 kazuhiro kazuhiro  16384 10月 27 21:53 node_modules
+    -rw-rw-r--   1 kazuhiro kazuhiro 316872 10月 27 21:53 package-lock.json
+    -rw-rw-r--   1 kazuhiro kazuhiro   1955 10月 27 21:52 package.json
+    drwxrwxr-x   2 kazuhiro kazuhiro    119 10月 27 21:52 src
+    drwxrwxr-x   2 kazuhiro kazuhiro     50 10月 27 21:52 test
+    -rw-rw-r--   1 kazuhiro kazuhiro     97 10月 27 21:52 tsconfig.build.json
+    -rw-rw-r--   1 kazuhiro kazuhiro    541 10月 27 21:52 tsconfig.json
+    ```
+
+1. ビルドしたアプリを実行する
+
+    ```sh
+    npm run start
+
+    > nestjs-samle-01@0.0.2 start
+    > nest start
+
+    [Nest] 11958  - 2023/10/27 22:00:48     LOG [NestFactory] Starting Nest application...
+    [Nest] 11958  - 2023/10/27 22:00:48     LOG [InstanceLoader] AppModule dependencies initialized +25ms
+    [Nest] 11958  - 2023/10/27 22:00:48     LOG [RoutesResolver] AppController {/}: +17ms
+    [Nest] 11958  - 2023/10/27 22:00:48     LOG [RouterExplorer] Mapped {/, GET} route +6ms
+    [Nest] 11958  - 2023/10/27 22:00:48     LOG [NestApplication] Nest application successfully started +4ms
+    ```
+
+1. 別ターミナルで`curl`でアクセスし、疎通を確認 → 成功！！
+
+    ```sh
+    curl http://10.1.1.201:3000
+    こんにちわ
+    ```
+
+- ★結論：@nestJS/cliをグローバルインストール使用せずに、NestJSのプロジェクトを起動できるかを検証　→  @nestJS/cliのグローバルインストールは必要ないことを確認
 
 - 以上
 
@@ -1458,3 +1607,4 @@ git log --graph --oneline
 <del>
 1. APサーバを起動し、"こんちわ"の表示を確認
 </del>
+
